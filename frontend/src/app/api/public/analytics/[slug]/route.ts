@@ -1,0 +1,1 @@
+import{NextRequest}from"next/server";import{BACKEND_URL}from"@/lib/backend";import{proxy}from"@/lib/proxy";export async function POST(r:NextRequest,{params}:{params:Promise<{slug:string}>}){const{slug}=await params;return proxy(await fetch(`${BACKEND_URL}/api/public/analytics/${slug}`,{method:"POST",headers:{"Content-Type":"application/json"},body:await r.text()}))}

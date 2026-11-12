@@ -1,0 +1,2 @@
+package br.com.sistemacardapio.pedido;import org.springframework.http.*;import org.springframework.web.bind.annotation.*;import jakarta.validation.Valid;
+@RestController@RequestMapping("/api/public/pedidos")public class PedidoPublicController{private final PedidoService s;public PedidoPublicController(PedidoService s){this.s=s;}@PostMapping@ResponseStatus(HttpStatus.CREATED)public PedidoService.Response criar(@Valid@RequestBody PedidoService.Request r){return s.criar(r);}}

@@ -1,0 +1,2 @@
+package br.com.sistemacardapio.catalogo;import org.springframework.web.bind.annotation.*;
+@RestController@RequestMapping("/api/public/cardapios")public class CardapioPublicoController{private final CardapioPublicoService s;public CardapioPublicoController(CardapioPublicoService s){this.s=s;}@GetMapping("/{slug}")public CardapioPublicoService.CardapioResponse obter(@PathVariable String slug){return s.obter(slug);}}

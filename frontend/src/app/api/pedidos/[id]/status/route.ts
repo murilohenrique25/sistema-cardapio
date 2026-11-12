@@ -1,0 +1,1 @@
+import{NextRequest}from"next/server";import{authenticatedBackendFetch}from"@/lib/backend";import{proxy}from"@/lib/proxy";export async function PATCH(r:NextRequest,{params}:{params:Promise<{id:string}>}){const{id}=await params;return proxy(await authenticatedBackendFetch(`/api/pedidos/${id}/status`,{method:"PATCH",headers:{"Content-Type":"application/json"},body:await r.text()}))}

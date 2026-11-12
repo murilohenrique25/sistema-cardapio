@@ -1,0 +1,1 @@
+import{NextRequest,NextResponse}from"next/server";import{BACKEND_URL}from"@/lib/backend";export async function POST(q:NextRequest){const r=await fetch(`${BACKEND_URL}/api/public/pedidos`,{method:"POST",headers:{"Content-Type":"application/json"},body:await q.text()});return new NextResponse(await r.text(),{status:r.status,headers:{"Content-Type":"application/json"}})}

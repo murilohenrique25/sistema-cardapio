@@ -1,0 +1,343 @@
+.layout {
+  display: grid;
+  min-height: 100vh;
+  grid-template-columns: 240px minmax(0, 1fr);
+  background: var(--background);
+}
+.workspace {
+  min-width: 0;
+  padding: 40px clamp(22px, 4vw, 56px);
+}
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+}
+.header h1 {
+  margin: 0;
+  font-size: 2rem;
+}
+.toolbar {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 20px;
+}
+.toolbar h2 {
+  margin: 0;
+  font-size: 1.4rem;
+}
+.toolbar p:last-child {
+  margin: 5px 0 0;
+  color: var(--muted);
+}
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  gap: 16px;
+  margin-top: 26px;
+}
+.card {
+  display: flex;
+  min-height: 100%;
+  flex-direction: column;
+  overflow: hidden;
+  border: 1px solid var(--border);
+  border-radius: 15px;
+  background: #fff;
+  box-shadow: 0 8px 24px rgba(31, 35, 58, 0.045);
+}
+.image {
+  position: relative;
+  display: grid;
+  height: 155px;
+  place-items: center;
+  overflow: hidden;
+  background: #f0f1f5;
+}
+.image > img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  background: #fff;
+}
+.image > div {
+  display: grid;
+  place-items: center;
+  gap: 5px;
+  color: var(--muted);
+}
+.image > div span {
+  font-size: 2rem;
+}
+.imageAction {
+  position: absolute;
+  right: 10px;
+  bottom: 10px;
+  border-radius: 9px;
+  padding: 8px 11px;
+  color: #fff;
+  background: rgba(27, 20, 16, 0.82);
+  cursor: pointer;
+  font-size: 0.75rem;
+  font-weight: 800;
+}
+.body {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  padding: 18px;
+}
+.topline {
+  display: flex;
+  justify-content: space-between;
+  gap: 10px;
+}
+.topline > span:first-child {
+  color: var(--primary);
+  font-size: 0.75rem;
+  font-weight: 800;
+  text-transform: uppercase;
+}
+.status {
+  border-radius: 99px;
+  padding: 4px 7px;
+  color: #166534;
+  background: #dcfce7;
+  font-size: 0.67rem;
+  font-weight: 800;
+}
+.off {
+  color: #991b1b;
+  background: #fee2e2;
+}
+.body h3 {
+  margin: 10px 0 4px;
+}
+.body > p {
+  min-height: 42px;
+  margin: 0 0 12px;
+  color: var(--muted);
+  font-size: 0.88rem;
+}
+.price {
+  font-size: 1.08rem;
+}
+.actions {
+  display: flex;
+  gap: 6px;
+  margin-top: auto;
+  padding-top: 16px;
+}
+.message {
+  border-radius: 12px;
+  padding: 13px;
+  color: #991b1b;
+  background: #fee2e2;
+}
+.empty {
+  grid-column: 1/-1;
+  display: grid;
+  place-items: center;
+  padding: 70px;
+  border: 1px dashed #d8c8bb;
+  border-radius: 18px;
+  color: var(--muted);
+  background: #fff;
+}
+.empty > span {
+  font-size: 2rem;
+}
+.empty strong {
+  color: var(--foreground);
+}
+.empty p {
+  margin: 4px 0 16px;
+}
+.overlay {
+  position: fixed;
+  z-index: 40;
+  inset: 0;
+  display: grid;
+  place-items: center;
+  padding: 18px;
+  background: rgba(24, 17, 13, 0.65);
+  backdrop-filter: blur(4px);
+}
+.dialog {
+  width: min(850px, 100%);
+  max-height: 94vh;
+  overflow: auto;
+  border-radius: 24px;
+  background: #fff;
+  box-shadow: 0 30px 90px rgba(0, 0, 0, 0.28);
+}
+.dialog > header {
+  display: flex;
+  justify-content: space-between;
+  padding: 24px 26px 18px;
+  border-bottom: 1px solid var(--border);
+}
+.dialog h2 {
+  margin: 0;
+}
+.close {
+  border: 0;
+  background: transparent;
+  font-size: 2rem;
+  cursor: pointer;
+}
+.formLayout {
+  display: grid;
+  grid-template-columns: 230px 1fr;
+  gap: 26px;
+  padding: 24px 26px;
+}
+.photoField {
+  display: grid;
+  align-content: start;
+  gap: 10px;
+}
+.photoPreview {
+  display: grid;
+  aspect-ratio: 1/1;
+  place-items: center;
+  overflow: hidden;
+  border: 2px dashed #ddcfc4;
+  border-radius: 16px;
+  background: #faf8f5;
+}
+.photoPreview img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+.photoPreview > div {
+  display: grid;
+  place-items: center;
+  gap: 7px;
+  padding: 20px;
+  text-align: center;
+  color: var(--muted);
+}
+.photoPreview > div > span {
+  display: grid;
+  width: 38px;
+  height: 38px;
+  place-items: center;
+  border-radius: 50%;
+  color: var(--primary);
+  background: #fff0e7;
+  font-size: 1.4rem;
+}
+.photoPreview small {
+  font-size: 0.7rem;
+}
+.fields {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 15px;
+}
+.fields label {
+  display: grid;
+  align-content: start;
+  gap: 6px;
+  font-size: 0.8rem;
+  font-weight: 800;
+}
+.fields label > span {
+  color: var(--muted);
+  font-weight: 400;
+}
+.fields input,
+.fields textarea,
+.fields select {
+  width: 100%;
+  min-height: 46px;
+  border: 1px solid var(--border);
+  border-radius: 11px;
+  padding: 10px 12px;
+}
+.fields label > small {
+  color: var(--muted);
+  font-size: 0.68rem;
+  font-weight: 400;
+}
+.description,
+.switches {
+  grid-column: 1/-1;
+}
+.description textarea {
+  min-height: 86px;
+  resize: vertical;
+}
+.switches {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px;
+}
+.switches label {
+  display: flex;
+  align-items: flex-start;
+  gap: 9px;
+  border: 1px solid var(--border);
+  border-radius: 11px;
+  padding: 12px;
+}
+.switches label span {
+  display: grid;
+}
+.switches small {
+  color: var(--muted);
+  font-weight: 400;
+}
+.dialog footer {
+  display: flex;
+  justify-content: flex-end;
+  gap: 10px;
+  padding: 18px 26px;
+  border-top: 1px solid var(--border);
+}
+@media (max-width: 900px) {
+  .layout {
+    grid-template-columns: 1fr;
+  }
+  .workspace {
+    padding: 24px 16px;
+  }
+}
+@media (max-width: 700px) {
+  .formLayout {
+    grid-template-columns: 1fr;
+  }
+  .photoField {
+    grid-template-columns: 130px 1fr;
+    align-items: center;
+  }
+  .fields {
+    grid-template-columns: 1fr;
+  }
+  .description,
+  .switches {
+    grid-column: auto;
+  }
+  .switches {
+    grid-template-columns: 1fr;
+  }
+}
+@media (max-width: 520px) {
+  .toolbar {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+  .actions {
+    align-items: stretch;
+    flex-direction: column;
+  }
+  .photoField {
+    grid-template-columns: 1fr;
+  }
+  .dialog {
+    border-radius: 18px;
+  }
+}

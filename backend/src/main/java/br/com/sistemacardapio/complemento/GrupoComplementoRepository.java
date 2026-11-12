@@ -1,0 +1,1 @@
+package br.com.sistemacardapio.complemento;import java.util.*;import org.springframework.data.jpa.repository.JpaRepository;public interface GrupoComplementoRepository extends JpaRepository<GrupoComplemento,UUID>{List<GrupoComplemento>findAllByEmpresaIdOrderByNomeAsc(UUID e);Optional<GrupoComplemento>findByIdAndEmpresaId(UUID id,UUID e);}

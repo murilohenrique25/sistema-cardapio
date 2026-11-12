@@ -1,0 +1,4 @@
+package br.com.sistemacardapio.pedido;
+import java.util.*;import org.springframework.security.access.prepost.PreAuthorize;import org.springframework.web.bind.annotation.*;
+@RestController@RequestMapping("/api/pedidos")@PreAuthorize("hasRole('ADMIN_EMPRESA')")
+public class PedidoAdminController{private final PedidoAdminService s;public PedidoAdminController(PedidoAdminService s){this.s=s;}@GetMapping public List<PedidoAdminService.Resumo>listar(@RequestParam(required=false)String status){return s.listar(status);}@GetMapping("/{id}")public PedidoAdminService.Detalhe obter(@PathVariable UUID id){return s.obter(id);}@PatchMapping("/{id}/status")public PedidoAdminService.Resumo status(@PathVariable UUID id,@RequestBody PedidoAdminService.StatusRequest r){return s.alterarStatus(id,r.status());}}

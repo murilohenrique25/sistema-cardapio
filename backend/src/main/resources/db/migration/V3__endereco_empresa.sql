@@ -1,0 +1,2 @@
+ALTER TABLE empresa ADD COLUMN endereco VARCHAR(500);
+

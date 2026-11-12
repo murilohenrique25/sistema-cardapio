@@ -1,0 +1,1 @@
+import{NextRequest}from"next/server";import{authenticatedBackendFetch}from"@/lib/backend";import{proxy}from"@/lib/proxy";export async function PUT(r:NextRequest,{params}:{params:Promise<{id:string}>}){const{id}=await params;return proxy(await authenticatedBackendFetch(`/api/usuarios/${id}/senha`,{method:"PUT",headers:{"Content-Type":"application/json"},body:await r.text()}))}
